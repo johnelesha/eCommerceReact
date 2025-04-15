@@ -138,53 +138,6 @@ const UsersTable = () => {
     setFilteredUsers(filteredData);
   };
 
-  const addUser = (e) => {
-    e.preventDefault();
-
-    const newID = Math.max(...filteredUsers.map((user) => user.id)) + 1; // spread operator
-    const newUser = { ...formData, id: newID };
-
-    axios
-      .post(`${urlApi}`, newUser)
-      .then((res) => {
-        let usersAfterAdd = [...filteredUsers, formData];
-        setUsers(usersAfterAdd);
-        setFilteredUsers(usersAfterAdd);
-
-        document.getElementById("my_modal_5").close();
-
-        console.log("new user added successfully ...", res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const serverFormData = new FormData();
-      serverFormData.append("image", file);
-      axios
-        .post("https://your-api.com/upload", serverFormData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .the((res) => {
-          const imageUrl = res.data.imageUrl;
-          setFormData({
-            ...formData,
-            image: imageUrl,
-          });
-        })
-        .catch((error) => {
-          console.error("Error uploading image:", error);
-        });
-    }
-  };
-
   const openEditModal = (userId, currentRole) => {
     setCurrentEditingUserId(userId);
     setSelectedRole(currentRole);
