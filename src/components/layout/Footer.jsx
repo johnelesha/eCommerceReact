@@ -4,7 +4,6 @@ function Footer() {
   return (
     <footer className="footer p-10 bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand Info */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
             <svg
@@ -14,7 +13,7 @@ function Footer() {
               xmlns="http://www.w3.org/2000/svg"
               className="fill-current text-blue-800"
             >
-              <path d="M12 2C15.9 2 19 5.1 19 9c0 1.9-.7 3.6-1.9 5-1.2 1.4-2.8 2.4-4.6 3.2l-.5.2V22h-2v-3.6l-.5-.2c-1.8-.8-3.4-1.8-4.6-3.2C5.7 12.6 5 10.9 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.4.5 2.7 1.4 3.8 1.8 2.1 4.5 3.2 7.6 3.2 3.1 0 5.8-1.1 7.6-3.2.9-1.1 1.4-2.4 1.4-3.8 0-2.8-2.2-5-5-5z"/>
+              <path d="M12 2C15.9 2 19 5.1 19 9c0 1.9-.7 3.6-1.9 5-1.2 1.4-2.8 2.4-4.6 3.2l-.5.2V22h-2v-3.6l-.5-.2c-1.8-.8-3.4-1.8-4.6-3.2C5.7 12.6 5 10.9 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.4.5 2.7 1.4 3.8 1.8 2.1 4.5 3.2 7.6 3.2 3.1 0 5.8-1.1 7.6-3.2.9-1.1 1.4-2.4 1.4-3.8 0-2.8-2.2-5-5-5z" />
             </svg>
             <span className="text-xl font-bold text-white">Glamorix</span>
           </div>
@@ -42,7 +41,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Shop */}
         <div className="space-y-4">
           <h6 className="text-lg font-semibold text-white">Shop</h6>
           <ul className="space-y-2">
@@ -54,7 +52,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Customer Service */}
         <div className="space-y-4">
           <h6 className="text-lg font-semibold text-white">Customer Service</h6>
           <ul className="space-y-2">
@@ -66,7 +63,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* About */}
         <div className="space-y-4">
           <h6 className="text-lg font-semibold text-white">About Glamorix</h6>
           <ul className="space-y-2">
@@ -79,7 +75,6 @@ function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="max-w-7xl mx-auto pt-8 mt-8 border-t border-gray-800 text-center text-sm">
         <p>© 2023 Glamorix Beauty. All rights reserved.</p>
       </div>

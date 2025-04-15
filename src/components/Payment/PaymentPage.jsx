@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router-dom";
-import { UsersContext } from "../../Context/UserContext";
-import { CartProvider } from "../../Context/CartContext";
-import { OrderContext } from "../../Context/OrderContext";
+import { UsersContext } from "../../context/UserContext";
+import { CartProvider } from "../../context/CartContext";
+import { OrderContext } from "../../context/OrderContext";
 
 const PaymentPage = () => {
   const navigate = useNavigate();
@@ -11,20 +11,17 @@ const PaymentPage = () => {
   const { cart } = useContext(CartProvider);
   const { createOrder } = useContext(OrderContext);
 
-  // Redirect if not logged in
   React.useEffect(() => {
     if (!currentUser) {
       navigate("/login");
     }
   }, [currentUser, navigate]);
 
-  // Calculate total amount
   const totalAmount = Object.values(cart).reduce(
     (sum, item) => sum + item.total,
     0
   );
 
-  // Prepare order data
   const prepareOrderData = () => {
     const products = Object.keys(cart).map((productId) => ({
       productId,
@@ -41,7 +38,7 @@ const PaymentPage = () => {
   };
 
   if (!currentUser) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return (
@@ -49,7 +46,6 @@ const PaymentPage = () => {
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 space-y-6">
         <h1 className="text-2xl font-bold text-center">Payment Page</h1>
 
-        {/* Order Summary */}
         <div className="border p-4 rounded-xl space-y-2 bg-gray-50">
           <p className="text-lg font-semibold">Order Summary</p>
           {Object.entries(cart).map(([productId, item]) => (
@@ -64,7 +60,6 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        {/* PayPal Integration */}
         <PayPalScriptProvider options={{ "client-id": "AXzQW7N6bPuf43VgewQq3TirwOHI9i8MEqicYgYX3Y1gAMeOqREzcW0nbgnH8dpJ6xeKcvhdiFc5ZuTS" }}>
           <PayPalButtons
             style={{ layout: "vertical" }}

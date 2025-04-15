@@ -39,17 +39,15 @@ const Newsletter = () => {
 
   return (
     <section className="relative py-16 px-4">
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://img.freepik.com/free-photo/spa-body-care-items-blue-with-tropical-leaves_169016-4104.jpg?uid=R94743549&ga=GA1.1.894774702.1735655482&semt=ais_hybrid&w=740" 
+        <img
+          src="https://img.freepik.com/free-photo/spa-body-care-items-blue-with-tropical-leaves_169016-4104.jpg?uid=R94743549&ga=GA1.1.894774702.1735655482&semt=ais_hybrid&w=740"
           alt="Newsletter background"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-opacity-50"></div>
       </div>
-      
-      {/* Content */}
+
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
           <span className="inline-block pb-2 border-b-2 border-white">Our Newsletter</span>
@@ -79,9 +77,8 @@ const Newsletter = () => {
 
         {message && (
           <p
-            className={`mt-4 text-lg ${
-              message.includes("Thank you") ? "text-green-300" : "text-red-300"
-            }`}
+            className={`mt-4 text-lg ${message.includes("Thank you") ? "text-green-300" : "text-red-300"
+              }`}
           >
             {message}
           </p>

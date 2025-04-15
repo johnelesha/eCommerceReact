@@ -13,20 +13,17 @@ const PaymentPage = () => {
   const { createOrder } = useContext(OrderContext);
   const { products } = useContext(ProdContext);
 
-  // Redirect if not logged in
   React.useEffect(() => {
     if (!currentUser) {
       navigate("/login");
     }
   }, [currentUser, navigate]);
 
-  // Calculate total amount
   const totalAmount = Object.values(cart).reduce(
     (sum, item) => sum + item.total,
     0
   );
 
-  // Prepare order data
   const prepareOrderData = () => {
     const products = Object.keys(cart).map((productId) => ({
       productId,
@@ -53,12 +50,10 @@ const PaymentPage = () => {
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 space-y-6 text-gray-900">
         <h1 className="text-2xl font-bold text-center">Payment Page</h1>
 
-        {/* Order Summary with Product Details */}
         <div className="border p-4 rounded-xl space-y-4 bg-gray-50">
           <p className="text-lg font-semibold">Order Summary</p>
 
           {Object.entries(cart).map(([productId, item]) => {
-            // Find the product details from products context
             const product = products.find((p) => p.id === productId);
 
             return (
@@ -105,7 +100,6 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        {/* PayPal Integration */}
         <PayPalScriptProvider
           options={{
             "client-id":

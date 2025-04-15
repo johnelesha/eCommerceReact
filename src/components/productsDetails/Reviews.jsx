@@ -12,6 +12,7 @@ const Reviews = ({ product }) => {
   const { users, currentUser } = useContext(UsersContext);
   const userId = currentUser?.id || localStorage.getItem("userId");
 
+  const theme = useTheme();
   useEffect(() => {
     if (product) {
       setReviews(product.reviews || []);
@@ -19,7 +20,6 @@ const Reviews = ({ product }) => {
   }, [product]);
 
   if (!product) return <div>Product not found!</div>;
-  const theme = useTheme();
   const textColor = theme == "night" ? "text-gray-100" : "text-sky-950";
 
   const handleAdd = async () => {

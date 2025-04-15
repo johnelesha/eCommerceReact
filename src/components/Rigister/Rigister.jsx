@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UsersContext } from "../../context/UserContext"; 
+import { UsersContext } from "../../context/UserContext";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { setCurrentUser } = useContext(UsersContext); 
+  const { setCurrentUser } = useContext(UsersContext);
 
   const [form, setForm] = useState({
     name: "",
@@ -83,13 +83,13 @@ const Register = () => {
 
     try {
       await axios.post("http://localhost:3000/users", newUser);
-      localStorage.setItem("userId", newUser.id);        
-      setCurrentUser(newUser);                            
-      alert("تم إنشاء الحساب بنجاح 🎉");
-      navigate("/profile");                              
+      localStorage.setItem("userId", newUser.id);
+      setCurrentUser(newUser);
+      alert("The user has been created successfully.");
+      navigate("/profile");
     } catch (err) {
       console.error("Error:", err);
-      setErrorMsg("حدث خطأ أثناء التسجيل!");
+      setErrorMsg("There was an error creating the user.");
     }
   };
 
@@ -109,7 +109,7 @@ const Register = () => {
           </div>
         )}
 
-      
+
         <input
           type="text"
           name="name"

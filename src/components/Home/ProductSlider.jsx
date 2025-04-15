@@ -6,9 +6,8 @@ import ProductCard from "../sharedComponent/ProductCard";
 const ProductSlider = () => {
   const { products, loading } = useContext(ProdContext);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(4); // number of slides to show
+  const [slidesToShow, setSlidesToShow] = useState(4);
 
-  // Handle responsive slides count
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -27,7 +26,6 @@ const ProductSlider = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Filter featured products or take first few if no featured flag
   const featuredProducts = products
     .filter((product) => product.featured)
     .slice(0, 8);
@@ -72,9 +70,8 @@ const ProductSlider = () => {
             <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{
-                transform: `translateX(-${
-                  currentIndex * (100 / slidesToShow)
-                }%)`,
+                transform: `translateX(-${currentIndex * (100 / slidesToShow)
+                  }%)`,
               }}
             >
               {displayProducts.map((product) => (
@@ -89,7 +86,6 @@ const ProductSlider = () => {
             </div>
           </div>
 
-          {/* Navigation arrows */}
           <button
             onClick={prevSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 z-10"

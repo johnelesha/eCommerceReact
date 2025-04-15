@@ -33,7 +33,6 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  // User Login function
   const [userImage, setUserImage] = useState(null);
   const [userId, setUserId] = useState(null);
   const [userRole, setUserRole] = useState(null);
@@ -77,7 +76,6 @@ const Navbar = () => {
     setUserImage(defaultImage);
   };
 
-  // Cart function
   const { cart } = useContext(CartProvider);
   let cartCount = Object.values(cart).reduce(
     (sum, item) => sum + (item.quantity || 0),
@@ -88,8 +86,6 @@ const Navbar = () => {
     (sum, item) => sum + (item.total || 0),
     0
   );
-
-  // Function for checking active links
   const isActive = (link) => {
     return activeLink === link ? "text-black font-semibold" : "";
   };
@@ -98,13 +94,12 @@ const Navbar = () => {
   const handleThemeToggle = () => {
     const newTheme = theme === "night" ? "winter" : "night";
     document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme); // optional: persist across reloads
+    localStorage.setItem("theme", newTheme);
   };
 
   return (
     <nav className="w-full border-b border-gray-200 shadow-sm sticky bg-white top-0 left-0 z-50 quicksand-regular">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        {/* Mobile Menu Toggle icon */}
         <div className="md:hidden text-black">
           {isOpen ? (
             <FiX className="w-6 h-6 cursor-pointer" onClick={toggleMenu} />
@@ -113,7 +108,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Logo */}
         <div className="flex items-center space-x-2 text-lg font-bold text-gray-800">
           <svg
             width="40"
@@ -129,10 +123,8 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-sm font-medium text-gray-800">
           {navLinks.map((link) => {
-            // Check if the link is "Home" and handle it separately
             const linkPath =
               link === "Home" ? "/" : `/${link.toLowerCase().replace(" ", "")}`;
             return (
@@ -149,9 +141,7 @@ const Navbar = () => {
           })}
         </ul>
 
-        {/* Right Icons */}
         <div className="flex items-center space-x-4 text-gray-800">
-          {/* Theme Toggle */}
           <label className="swap swap-rotate">
             <input type="checkbox" className="theme-controller" checked={theme === "night"}
               onChange={handleThemeToggle} />
@@ -173,7 +163,6 @@ const Navbar = () => {
             </svg>
           </label>
 
-          {/* Cart */}
           <div className="flex-none">
             <div className="dropdown dropdown-end">
               <div
@@ -216,7 +205,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* User Profile */}
           <div className="relative">
             {userId ? (
               <div className="dropdown dropdown-end">
@@ -281,7 +269,6 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="dropdown dropdown-end">
-                {/*Not Loged in */}
                 <Link to="/login">Sign Up / Log In</Link>
               </div>
             )}
@@ -289,11 +276,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col space-y-4 py-4 bg-zinc-50 text-gray-400">
           {navLinks.map((link) => {
-            // Check if the link is "Home" and handle it separately
             const linkPath =
               link == "Home" ? `/` : `/${link.toLowerCase().replace(" ", "")}`;
             return (

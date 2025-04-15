@@ -47,11 +47,10 @@ function Categories() {
   ];
   return (
     <>
-      {/* Categories Section */}
       <div className="mx-auto px-4 py-8 max-w-7xl">
-      
+
         <h1 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 ">
-        <div className="divider">Our Category</div>
+          <div className="divider">Our Category</div>
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-6 gap-4">
@@ -60,7 +59,6 @@ function Categories() {
               key={index}
               className={`relative rounded-lg overflow-hidden ${category.className}`}
             >
-              {/* Cards Image */}
               <div className="absolute inset-0 z-10 bg-sky-50">
                 <img
                   src={category.image}
@@ -69,7 +67,6 @@ function Categories() {
                 />
               </div>
 
-              {/* Cards Content */}
               <div className="relative z-10 flex flex-col p-6 text-black">
                 <div className="flex justify-between items-start mb-4">
                   <h2 className="text-xl md:text-2xl font-bold mb-4">

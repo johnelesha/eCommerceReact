@@ -13,7 +13,6 @@ const LandingPage = () => {
 
     return (
         <div className="space-y-12">
-            {/* Need Redesign */}
             <Hero />
             <Services />
             <Categories />

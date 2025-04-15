@@ -21,7 +21,6 @@ const UserRating = ({ productId, productRates, setProductRates, onRateUpdate }) 
         }
 
         if (rateValue === userRate) return;
-        //const numericUserId = Number(userId);
 
         const updatedRatedProducts = [...(currentUser?.ratedProducts || [])];
         const productIndex = updatedRatedProducts.findIndex(p => p.productId === productId);
@@ -32,23 +31,13 @@ const UserRating = ({ productId, productRates, setProductRates, onRateUpdate }) 
             updatedRatedProducts.push({ productId, rate: rateValue });
         }
 
-        // const updatedRates = [...productRates];
-        // const userRateIndex = updatedRates.findIndex(r => r.userId === userId);
-
-        // if (userRateIndex > -1) {
-        //     updatedRates[userRateIndex].rated = rateValue;
-        // } else {
-        //     updatedRates.push({ userId, rated: rateValue });
-        // }
-
         const updatedRates = productRates.map(rate => {
             if (rate.userId === userId) {
-                return { ...rate, rated: rateValue }; // Update the user's rate
+                return { ...rate, rated: rateValue };
             }
-            return rate; // Keep other rates intact
+            return rate;
         });
 
-        // If no previous rating for the user, add it to the rates array
         if (!updatedRates.some(rate => rate.userId === userId)) {
             updatedRates.push({ userId, rated: rateValue });
         }
