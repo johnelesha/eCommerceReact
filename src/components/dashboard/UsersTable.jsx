@@ -10,20 +10,6 @@ const UsersTable = () => {
   let [users, setUsers] = useState([]);
   let [sortOrder, setSortOrder] = useState("asc");
   let [filteredUsers, setFilteredUsers] = useState([]);
-  let [formData, setFormData] = useState({
-    id: "",
-    name: "",
-    email: "",
-    password: "",
-    role: "",
-    phone: "",
-    address: [
-      {
-        city: "",
-      },
-    ],
-    image: null,
-  });
 
   let [role, setRole] = useState([]);
   let [selectedRole, setSelectedRole] = useState("");
