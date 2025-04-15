@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+.page_title {
+    font-size: 35px;
+    font-weight: 600;
+    text-shadow: 2px 2px #92929b;
+}
+
+.main-title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 3px;
+    width: fit-content;
+    margin: 80px auto 40px auto;
+    text-shadow: #c0c0c0 1px 1px 2px;
+}
+
+td {
+    font-size: 15px;
+    text-align: center;
+}
