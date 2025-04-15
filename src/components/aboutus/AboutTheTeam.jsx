@@ -2,8 +2,13 @@ import johnImg from '../../assets/images/john.jpeg';
 import mahmoudImg from '../../assets/images/mahmoud.jpeg';
 import neamaImg from '../../assets/images/neama.jpeg';
 import mariamImg from '../../assets/images/mariam.jpeg';
+import useTheme from '../../hooks/useTheme';
 
 const AboutTheTeam = () => {
+    const theme = useTheme();
+    const bgColor = theme === 'winter' ? 'bg-base-200' : 'bg-gray-700';
+    const textColor = theme === 'night' ? 'text-neutral-content' : 'text-gray-800';
+
     return (
         <>
             <section className="py-16 px-6 md:px-12 bg-base-200 text-base-content">
@@ -15,7 +20,7 @@ const AboutTheTeam = () => {
                 </div>
 
                 <div className="mt-12 flex flex-wrap justify-center gap-x-15 gap-y-10">
-                    <div className="card bg-base-200 shadow-lg p-6 max-w-xs text-center">
+                    <div className={`card ${bgColor} ${textColor} shadow-lg p-6 max-w-xs text-center`}>
                         <img
                             src={mariamImg}
                             alt="Mariam Nabil"
@@ -25,7 +30,7 @@ const AboutTheTeam = () => {
                         <p className="text-sm">Lead Developer - Passionate about technology and crafting seamless user experiences.</p>
                     </div>
 
-                    <div className="card bg-base-200 shadow-lg p-6 max-w-xs text-center">
+                    <div className={`card ${bgColor} ${textColor} shadow-lg p-6 max-w-xs text-center`}>
                         <img
                             src={neamaImg}
                             alt="Neama Samy"
@@ -35,7 +40,7 @@ const AboutTheTeam = () => {
                         <p className="text-sm">Designer - Loves creating elegant, intuitive designs with a focus on usability.</p>
                     </div>
 
-                    <div className="card bg-base-200 shadow-lg p-6 max-w-xs text-center">
+                    <div className={`card ${bgColor} ${textColor} shadow-lg p-6 max-w-xs text-center`}>
                         <img
                             src="https://placehold.co/150x150/png"
                             alt="Roaa Muhammed"
@@ -45,7 +50,7 @@ const AboutTheTeam = () => {
                         <p className="text-sm">A passionate developer focused on creating seamless user experiences through innovative solutions.</p>
                     </div>
 
-                    <div className="card bg-base-200 shadow-lg p-6 max-w-xs text-center">
+                    <div className={`card ${bgColor} ${textColor} shadow-lg p-6 max-w-xs text-center`}>
                         <img
                             src={mahmoudImg}
                             alt="Mahmoud Mohamed"
@@ -55,7 +60,7 @@ const AboutTheTeam = () => {
                         <p className="text-sm">A versatile developer dedicated to optimizing performance and enhancing the functionality of applications.</p>
                     </div>
 
-                    <div className="card bg-base-200 shadow-lg p-6 max-w-xs text-center">
+                    <div className={`card ${bgColor} ${textColor} shadow-lg p-6 max-w-xs text-center`}>
                         <img
                             src={johnImg}
                             alt="John Elesha"

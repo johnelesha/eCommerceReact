@@ -21,10 +21,6 @@
         "3",
         "1"
       ],
-      "paypalAccount": {
-        "account": "johnelesha@paypal.com",
-        "type": "email"
-      },
       "image": "https://static.vecteezy.com/system/resources/previews/000/439/863/non_2x/vector-users-icon.jpg",
       "ratedProducts": [
         {
@@ -61,10 +57,6 @@
         "6",
         "10"
       ],
-      "paypalAccount": {
-        "account": "mahmoud_mohamed@paypal.com",
-        "type": "email"
-      },
       "ratedProductes": [
         {
           "productId": "13",
@@ -94,10 +86,6 @@
         "4",
         "1"
       ],
-      "paypalAccount": {
-        "account": "1234567890",
-        "type": "number"
-      },
       "ratedProductes": [
         {
           "productId": "15",
@@ -125,10 +113,6 @@
         "3",
         "4"
       ],
-      "paypalAccount": {
-        "account": "NeamaSamy@paypal.com",
-        "type": "email"
-      },
       "ratedProductes": [
         {
           "productId": "9",
@@ -159,10 +143,6 @@
         "3",
         "1"
       ],
-      "paypalAccount": {
-        "account": "admin@paypal.com",
-        "type": "email"
-      },
       "ratedProductes": [],
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkdCzZtF44OwQa7zT3OtXjeVhPM65Oeigqkg&s"
     }
