@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { CartProvider } from "../../Context/CartContext";
+import { CartProvider } from "../../context/CartContext";
 import CartControls from "../sharedComponent/CartControls";
-import { ProdContext } from "../../Context/ProductContext";
+import { ProdContext } from "../../context/ProductContext";
 
 const CartPage = () => {
   const { cart } = useContext(CartProvider);
