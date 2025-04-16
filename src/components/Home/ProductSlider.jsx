@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProdContext } from "../../Context/ProductContext";
+import { ProdContext } from "../../context/ProductContext";
 import ProductCard from "../sharedComponent/ProductCard";
 
 const ProductSlider = () => {
