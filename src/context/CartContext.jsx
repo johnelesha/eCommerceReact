@@ -62,8 +62,13 @@ const CartContext = ({ children }) => {
         });
     };
 
+    const clearCart = () => {
+        setCart({});
+        localStorage.removeItem("cart");
+    };
+
     return (
-        <CartProvider.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartProvider.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
             {children}
         </CartProvider.Provider>
     );

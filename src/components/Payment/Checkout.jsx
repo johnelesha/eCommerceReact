@@ -10,7 +10,7 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(UsersContext);
   const { cart } = useContext(CartProvider);
-  const { createOrder } = useContext(OrderContext);
+  const { createOrders } = useContext(OrderContext);
   const { products } = useContext(ProdContext);
 
   React.useEffect(() => {
@@ -103,7 +103,7 @@ const PaymentPage = () => {
         <PayPalScriptProvider
           options={{
             "client-id":
-              "AXzQW7N6bPuf43VgewQq3TirwOHI9i8MEqicYgYX3Y1gAMeOqREzcW0nbgnH8dpJ6xeKcvhdiFc5ZuTS",
+              "AdomIwExA3GK4unJjKHpvw3k9axAFDPiN9vzWppIWhHI9Mt8T7icRtANq-uSRu3ByQ3arVdfDrlGqkPh",
           }}
         >
           <PayPalButtons
@@ -123,9 +123,9 @@ const PaymentPage = () => {
               try {
                 await actions.order.capture();
                 const orderData = prepareOrderData();
-                await createOrder(orderData);
+                await createOrders(orderData);
                 alert("Transaction completed successfully!");
-                navigate("/orders");
+                navigate("/");
               } catch (error) {
                 console.error("Payment error:", error);
                 alert("Payment failed. Please try again.");

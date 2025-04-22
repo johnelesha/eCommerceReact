@@ -16,9 +16,10 @@ const ProductsTable = () => {
     type: "",
     category: "",
     image: null,
-    rates: 1.5,
+    rates: [],
     price: 0,
     quantity: 0,
+    reviews: []
   });
 
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -144,7 +145,7 @@ const ProductsTable = () => {
       ...formData,
       id: String(newID),
       category: selectedCategory,
-      imageUrl: imageBase64,
+      image: imageBase64,
     };
 
     try {
@@ -188,9 +189,10 @@ const ProductsTable = () => {
       type: product.type,
       category: product.category,
       image: product.image,
-      rates: product.rates,
       price: product.price,
       quantity: product.quantity,
+      rates: product.rates,
+      reviews: product.reviews
     });
     setSelectedCategory(product.category);
     document.getElementById("addProduct-modal").showModal();
@@ -205,7 +207,7 @@ const ProductsTable = () => {
       ...formData,
       id: currentProductID,
       category: selectedCategory,
-      imageUrl: imageBase64,
+      image: imageBase64,
     };
 
     try {
@@ -404,9 +406,8 @@ const ProductsTable = () => {
                       type: "",
                       category: "",
                       image: null,
-                      rates: 0,
                       price: 0,
-                      quantity: 0,
+                      quantity: 0
                     });
                     setSelectedCategory("");
                   }}

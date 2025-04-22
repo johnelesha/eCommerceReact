@@ -70,13 +70,15 @@ const Navbar = () => {
     }
   }, [currentUser]);
 
+  const { cart, clearCart } = useContext(CartProvider);
+
   const handleLogout = () => {
     localStorage.clear();
+    clearCart();
     setUserId(null);
     setUserImage(defaultImage);
   };
 
-  const { cart } = useContext(CartProvider);
   let cartCount = Object.values(cart).reduce(
     (sum, item) => sum + (item.quantity || 0),
     0

@@ -5,10 +5,10 @@ import { CartProvider } from "./CartContext";
 
 export const OrderContext = createContext(null);
 
-export const OrderProvider = ({ children }) => {
+const OrderProvider = ({ children }) => {
     const [orders, setOrders] = useState([]);
     const { currentUser } = useContext(UsersContext);
-    const { cart, setCart } = useContext(CartProvider);
+    const { clearCart } = useContext(CartProvider);
 
     useEffect(() => {
         if (currentUser?.id) {
@@ -24,7 +24,7 @@ export const OrderProvider = ({ children }) => {
         }
     }, [currentUser]);
 
-    const createOrder = async (orderData) => {
+    const createOrders = async (orderData) => {
         try {
             // 1. First create the order
             const response = await axios.post("http://localhost:3000/orders", orderData);
@@ -47,8 +47,9 @@ export const OrderProvider = ({ children }) => {
             );
     
             // 3. Clear cart
-            setCart({});
-            localStorage.removeItem("cart");
+            // setCart([]);
+            // localStorage.removeItem("cart");
+            clearCart();
     
             return response.data;
         } catch (error) {
@@ -58,7 +59,7 @@ export const OrderProvider = ({ children }) => {
     };
 
     return (
-        <OrderContext.Provider value={{ orders, createOrder }}>
+        <OrderContext.Provider value={{ orders, createOrders }}>
             {children}
         </OrderContext.Provider>
     );
