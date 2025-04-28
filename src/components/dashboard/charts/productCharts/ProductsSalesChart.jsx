@@ -14,7 +14,7 @@ import {
 const ProductsSalesChart = () => {
   const [data, setData] = useState([]);
 
-  const urlApi = "http://localhost:3000/products";
+  const urlApi = "https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products";
 
   useEffect(() => {
     axios

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CartProvider } from "../../context/CartContext";
 import { UsersContext } from "../../context/UserContext";
-
+import { useNavigate } from "react-router-dom";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import { CiLogout } from "react-icons/ci";
 import { FaUserCircle } from "react-icons/fa";
@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 import useTheme from "../../hooks/useTheme";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const navLinks = ["Home", "About us", "Products", "Contact"];
 
   const location = useLocation();
@@ -55,7 +56,7 @@ const Navbar = () => {
         setUserRole(storedUserRole);
 
         axios
-          .get(`http://localhost:3000/users/${storedUserId}`)
+          .get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${storedUserId}`)
           .then((response) => {
             const image = response.data.image || defaultImage;
             setUserImage(image);
@@ -76,6 +77,7 @@ const Navbar = () => {
     localStorage.clear();
     clearCart();
     setUserId(null);
+    navigate("/");
     setUserImage(defaultImage);
   };
 

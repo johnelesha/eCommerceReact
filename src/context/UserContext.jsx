@@ -11,7 +11,7 @@ const UserContext = ({ children }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/users");
+                const response = await axios.get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users");
                 setUsers(response.data);
                 setUserLoading(false);
             } catch (error) {
@@ -26,14 +26,14 @@ const UserContext = ({ children }) => {
     useEffect(() => {
         const userId = localStorage.getItem("userId");
         if (userId) {
-            axios.get(`http://localhost:3000/users/${userId}`).then((res) => {
+            axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`).then((res) => {
                 setCurrentUser(res.data);
             });
         }
     }, []);
 
     return (
-        <UsersContext.Provider value={{ users, currentUser, setCurrentUser, userLoading }}>
+        <UsersContext.Provider value={{ users, setUsers, currentUser, setCurrentUser, userLoading }}>
             {children}
         </UsersContext.Provider>
     );

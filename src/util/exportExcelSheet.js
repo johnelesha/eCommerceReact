@@ -26,6 +26,4 @@ const handleExportExcelSheet =(jsonData)=>{
 
 }
 
-
-
 export default handleExportExcelSheet;

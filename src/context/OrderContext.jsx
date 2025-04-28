@@ -14,7 +14,7 @@ const OrderProvider = ({ children }) => {
         if (currentUser?.id) {
             const fetchOrders = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:3000/orders?userId=${currentUser.id}`);
+                    const response = await axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/orders?userId=${currentUser.id}`);
                     setOrders(response.data);
                 } catch (error) {
                     console.error("Error fetching orders:", error);
@@ -27,20 +27,20 @@ const OrderProvider = ({ children }) => {
     const createOrders = async (orderData) => {
         try {
             // 1. First create the order
-            const response = await axios.post("http://localhost:3000/orders", orderData);
+            const response = await axios.post("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/orders", orderData);
             
             // 2. Update product quantities
             await Promise.all(
                 orderData.products.map(async (product) => {
                     // Fetch current product data
-                    const productRes = await axios.get(`http://localhost:3000/products/${product.productId}`);
+                    const productRes = await axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products/${product.productId}`);
                     const currentQuantity = productRes.data.quantity;
                     
                     // Calculate new quantity
                     const newQuantity = currentQuantity - product.quantity;
                     
                     // Update product with new quantity
-                    await axios.patch(`http://localhost:3000/products/${product.productId}`, {
+                    await axios.patch(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products/${product.productId}`, {
                         quantity: newQuantity
                     });
                 })

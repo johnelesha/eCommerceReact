@@ -20,7 +20,7 @@ const OrdersTable = () => {
   let [users, setUsers] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/users")
+      .get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users")
       .then((data) => {
         setUsers(data.data);
       })
@@ -29,7 +29,7 @@ const OrdersTable = () => {
       });
   }, []);
 
-  const urlApi = "http://localhost:3000/orders";
+  const urlApi = "https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/orders";
   useEffect(() => {
     axios
       .get(urlApi)
@@ -102,7 +102,7 @@ const OrdersTable = () => {
   const handleEditStatus = () => {
     axios
       .patch(
-        `${urlApi}/${Number(currentEditingOrderId)}`,
+        `${urlApi}/${currentEditingOrderId}`,
         {
           status: selectedStatus,
         },
@@ -111,6 +111,7 @@ const OrdersTable = () => {
         }
       )
       .then((res) => {
+        console.log("Order status updated successfully!", res.data);
         const updatedOrders = orders.map((order) =>
           order.id === currentEditingOrderId
             ? { ...order, status: selectedStatus }
@@ -135,16 +136,15 @@ const OrdersTable = () => {
     document.getElementById("delete-modal").showModal();
   };
 
-  const handleDeleteOrder = (orderID) => {
+  const handleDeleteOrder = () => {
     axios
       .delete(`${urlApi}/${currentDeletingOrderId}`)
       .then((response) => {
-        let newOrdersList = orders.filter((order) => order.id !== orderID);
+        console.log("Order deleted successfully!", response.data);
+        let newOrdersList = orders.filter((order) => order.id !== currentDeletingOrderId);
 
         setOrders(newOrdersList);
         setFilteredOrders(newOrdersList);
-
-        console.log(`Deleted post with ID ${orderID}`);
       })
       .catch((error) => {
         console.error(error);

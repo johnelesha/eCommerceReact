@@ -37,7 +37,7 @@ const WishlistButton = ({ productId }) => {
                 wishlist: updatedWishlist,
             };
 
-            await axios.patch(`http://localhost:3000/users/${currentUser.id}`, {
+            await axios.patch(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${currentUser.id}`, {
                 wishlist: updatedWishlist,
             });
 

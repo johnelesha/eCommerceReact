@@ -17,10 +17,10 @@ const ProfileCard = ({ userId, onEdit }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userRes = await axios.get(`http://localhost:3000/users/${userId}`);
+        const userRes = await axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`);
         setUser(userRes.data);
 
-        const productsRes = await axios.get("http://localhost:3000/products");
+        const productsRes = await axios.get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products");
         const products = productsRes.data;
 
         const favorites = userRes.data.wishlist.length;

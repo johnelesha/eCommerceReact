@@ -5,7 +5,7 @@ import { UsersContext } from "../../context/UserContext";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { setCurrentUser } = useContext(UsersContext);
+  const { setUsers } = useContext(UsersContext);
 
   const [form, setForm] = useState({
     name: "",
@@ -82,11 +82,12 @@ const Register = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/users", newUser);
-      localStorage.setItem("userId", newUser.id);
-      setCurrentUser(newUser);
+      await axios.post("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users", newUser);
+      // localStorage.setItem("userId", newUser.id);
+      // setCurrentUser(newUser);
+      setUsers((prevUsers) => [...prevUsers, newUser]);
       alert("The user has been created successfully.");
-      navigate("/profile");
+      navigate("/login");
     } catch (err) {
       console.error("Error:", err);
       setErrorMsg("There was an error creating the user.");

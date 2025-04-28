@@ -14,10 +14,10 @@ const FavoriteProductCard = ({ userId }) => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const userRes = await axios.get(`http://localhost:3000/users/${userId}`);
+        const userRes = await axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`);
         const wishlistIds = userRes.data.wishlist || [];
 
-        const productsRes = await axios.get(`http://localhost:3000/products`);
+        const productsRes = await axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products`);
         const allProducts = productsRes.data;
 
         const favs = allProducts.filter(product => wishlistIds.includes(product.id));

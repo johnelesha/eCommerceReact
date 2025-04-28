@@ -47,10 +47,10 @@ const UserRating = ({ productId, productRates, setProductRates, onRateUpdate }) 
 
         try {
             await Promise.all([
-                axios.patch(`http://localhost:3000/users/${userId}`, {
+                axios.patch(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`, {
                     ratedProducts: updatedRatedProducts,
                 }),
-                axios.patch(`http://localhost:3000/products/${productId}`, {
+                axios.patch(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products/${productId}`, {
                     rates: updatedRates,
                 }),
             ]);

@@ -11,7 +11,7 @@ const Dashboard = () => {
   let [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products")
       .then((data) => {
         setProducts(data.data);
       })
@@ -24,7 +24,7 @@ const Dashboard = () => {
   let [orders, setOrders] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/orders")
+      .get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/orders")
       .then((data) => {
         setOrders(data.data);
       })
@@ -37,7 +37,7 @@ const Dashboard = () => {
   let [users, setUsers] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/orders")
+      .get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users")
       .then((data) => {
         setUsers(data.data);
       })
@@ -85,17 +85,6 @@ const Dashboard = () => {
             <div className="card-body">
               <h2 className="card-title">Users</h2>
               <p>{users.length} User</p>
-            </div>
-          </div>
-
-          {/* Settings */}
-          <div className=" w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5   card bg-base-100 shadow-lg  flex flex-row items-center content-center p-3">
-            <div className="p-5 h-fit rounded-full flex content-center items-center bg-violet-200">
-              <CgProfile className="text-2xl  text-violet-600" />
-            </div>
-            <div className="card-body">
-              <h2 className="card-title">Profile</h2>
-              <p>Available Profile</p>
             </div>
           </div>
         </div>

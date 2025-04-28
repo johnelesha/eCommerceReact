@@ -19,7 +19,7 @@ const UsersTable = () => {
 
   let [isLoading, setIsLoading] = useState(true);
 
-  const urlApi = "http://localhost:3000/users";
+  const urlApi = "https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users";
   useEffect(() => {
     axios
       .get(urlApi)
@@ -133,7 +133,7 @@ const UsersTable = () => {
   const handleEditRole = () => {
     axios
       .patch(
-        `${urlApi}/${Number(currentEditingUserId)}`,
+        `${urlApi}/${currentEditingUserId}`,
         {
           role: selectedRole,
         },
@@ -142,9 +142,10 @@ const UsersTable = () => {
         }
       )
       .then((res) => {
+        console.log(res.data);
         const updatedUsers = users.map((user) =>
           user.id === currentEditingUserId
-            ? { ...user, status: selectedRole }
+            ? { ...user, role: selectedRole }
             : user
         );
         setUsers(updatedUsers);

@@ -10,7 +10,7 @@ const ProductContext = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/products");
+                const res = await axios.get("https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products");
                 setProducts(res.data);
                 setLoading(false);
             } catch (err) {

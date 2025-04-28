@@ -31,7 +31,7 @@ const ProductsTable = () => {
 
   let [isLoading, setIsLoading] = useState(true);
 
-  const urlApi = "http://localhost:3000/products";
+  const urlApi = "https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products";
   useEffect(() => {
     axios
       .get(urlApi)
@@ -153,8 +153,11 @@ const ProductsTable = () => {
       console.log("✔ Product added: ", response.data);
       document.getElementById("addProduct-modal").close();
 
-      setProducts(response.data);
-      setFilteredProducts(response.data);
+      /* setProducts(response.data);
+      setFilteredProducts(response.data); */
+      const added = response.data;
+      setProducts((prev) => [...prev, added]);
+      setFilteredProducts((prev) => [...prev, added]);
     } catch (error) {
       console.log("❌ Error adding product:", error);
     }
@@ -198,7 +201,7 @@ const ProductsTable = () => {
     document.getElementById("addProduct-modal").showModal();
   };
 
-  const updateProduct = (e) => {
+  const updateProduct = async (e) => {
     e.preventDefault();
 
     const imageBase64 = formData.image;
@@ -211,7 +214,7 @@ const ProductsTable = () => {
     };
 
     try {
-      const response = axios.put(
+      /* const response = axios.put(
         `${urlApi}/${currentProductID}`,
         updatedProduct
       );
@@ -219,7 +222,14 @@ const ProductsTable = () => {
         product.id === currentProductID ? response.data : product
       );
       setProducts(updatedList);
-      setFilteredProducts(updatedList);
+      setFilteredProducts(updatedList); */
+      const { data: updated } = await axios.put(`${urlApi}/${currentProductID}`, updatedProduct);
+      setProducts((prev) =>
+        prev.map((p) => (p.id === currentProductID ? updated : p))
+      );
+      setFilteredProducts((prev) =>
+        prev.map((p) => (p.id === currentProductID ? updated : p))
+      );
       setEditMode(false);
       setCurrentProductID(null);
       document.getElementById("addProduct-modal").close();
@@ -388,7 +398,7 @@ const ProductsTable = () => {
             <div className="modal-action">
               <form>
                 <button
-                  type="submit"
+                  type="button"
                   className="btn btn-info  mr-5"
                   onClick={(e) => (editMode ? updateProduct(e) : addProduct(e))}
                 >

@@ -20,7 +20,7 @@ const EditProfileModal = ({ userId }) => {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/users/${userId}`).then((res) => {
+    axios.get(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`).then((res) => {
       const userData = res.data;
       setUser(userData);
       const address = userData.address?.[0] || {};
@@ -62,7 +62,7 @@ const EditProfileModal = ({ userId }) => {
     };
 
     try {
-      await axios.put(`http://localhost:3000/users/${userId}`, updatedUser);
+      await axios.put(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/users/${userId}`, updatedUser);
       alert("The user has been updated");
     } catch (err) {
       console.error(err);

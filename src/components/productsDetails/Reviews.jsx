@@ -47,7 +47,7 @@ const Reviews = ({ product }) => {
     setShowEmptyWarning(false);
 
     try {
-      await axios.patch(`http://localhost:3000/products/${product.id}`, {
+      await axios.patch(`https://a739df56-c549-494e-a20a-cc1785cff50b-00-2yw6hlld82bqs.janeway.replit.dev/products/${product.id}`, {
         reviews: updatedReviews,
       });
     } catch (error) {
