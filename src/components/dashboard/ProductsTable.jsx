@@ -405,6 +405,7 @@ const ProductsTable = () => {
                   {editMode ? "Update" : "Add"}
                 </button>
                 <button
+                  type="button"
                   className="btn btn-error"
                   onClick={() => {
                     document.getElementById("addProduct-modal").close();

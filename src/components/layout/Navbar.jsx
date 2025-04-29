@@ -223,12 +223,12 @@ const Navbar = () => {
                 </button>
                 {userRole === "admin" ? (
                   <div className="dropdown-content bg-white shadow-lg rounded-lg mt-2 p-2 w-48">
-                    <div className="flex items-center justify-between p-2 w-full text-gray-800 hover:bg-gray-100 rounded-lg">
+                    {/* <div className="flex items-center justify-between p-2 w-full text-gray-800 hover:bg-gray-100 rounded-lg">
                       <Link to={"/"} className="text-left w-full">
                         Admin Profile
                       </Link>
                       <MdOutlineAdminPanelSettings className="w-5 h-5 text-gray-800" />
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center justify-between p-2 w-full text-gray-800 hover:bg-gray-100 rounded-lg">
                       <Link to="/dashboard" className="text-left w-full">
