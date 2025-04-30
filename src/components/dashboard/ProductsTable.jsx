@@ -140,7 +140,11 @@ const ProductsTable = () => {
       return;
     }
 
-    const newID = Number(filteredProducts[filteredProducts.length - 1].id) + 1;
+    //const newID = Number(filteredProducts[filteredProducts.length - 1].id) + 1;
+    const newID =
+      products.length > 0
+        ? Math.max(...products.map((p) => Number(p.id))) + 1
+        : 1;
     const newProduct = {
       ...formData,
       id: String(newID),
